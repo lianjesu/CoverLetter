@@ -6,6 +6,6 @@
 
 [![Letter 1](https://img.shields.io/badge/Recommendation-Letter_1-green?style=for-the-badge)](./docs/UKG%20Recommendation%20Letter.pdf)
 
-[![Letter 2](https://img.shields.io/badge/Recommendation-Letter_2-green?style=for-the-badge)](./docs/UPS%20Recommendation%20Letter.pdf)
+[![UPS](https://img.shields.io/badge/Recommendation-Letter_2-green?style=for-the-badge)](./docs/UPS%20Recommendation%20Letter.pdf)
 
 </div>
