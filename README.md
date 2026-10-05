@@ -1,1 +1,1 @@
-![Mis estadísticas](./github-metrics.svg)
+![My stats](./github-metrics.svg)
