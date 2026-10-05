@@ -1,0 +1,19 @@
+name: Update Language Statistics
+on:
+  schedule:
+    - cron: "0 0 * * *" # Se ejecuta automáticamente todos los días a medianoche
+  workflow_dispatch: # Te permite ejecutarlo manualmente cuando quieras desde la pestaña Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: StefVuck/Github-Language-Stats@v1.2.0
+        with:
+          github_token: ${{ secrets.STATS_TOKEN }} # Tu token secreto seguro
+          visualization_types: "leaderboard" # Muestra un top de lenguajes limpios
+          output_path: "stats"
