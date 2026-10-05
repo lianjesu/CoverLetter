@@ -1,19 +1,19 @@
-name: Update Language Statistics
+name: Metrics
 on:
   schedule:
-    - cron: "0 0 * * *" # Se ejecuta automáticamente todos los días a medianoche
-  workflow_dispatch: # Te permite ejecutarlo manualmente cuando quieras desde la pestaña Actions
-
-permissions:
-  contents: write
-
+    - cron: "0 0 * * *"   # diario
+  workflow_dispatch:
 jobs:
-  update-stats:
+  metrics:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: StefVuck/Github-Language-Stats@v1.2.0
+      - uses: lowlighter/metrics@latest
         with:
-          github_token: ${{ secrets.STATS_TOKEN }} # Tu token secreto seguro
-          visualization_types: "leaderboard" # Muestra un top de lenguajes limpios
-          output_path: "stats"
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: TU_USUARIO
+          template: classic
+          base: header, activity, community, repositories
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          filename: github-metrics.svg
