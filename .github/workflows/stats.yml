@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           # Token automatico de Actions para commitear el SVG en este repo
           committer_token: ${{ github.token }}
-          user: TU_USUARIO
+          user: lianjesu
           template: classic
           base: header, activity, community
           plugin_languages: yes
