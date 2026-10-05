@@ -1,19 +1,31 @@
 name: Metrics
+ 
 on:
   schedule:
-    - cron: "0 0 * * *"   # diario
+    - cron: "0 0 * * *"   # diario a medianoche UTC
   workflow_dispatch:
+ 
+# Permisos mínimos del GITHUB_TOKEN automatico:
+# solo puede escribir en ESTE repo (para guardar el SVG)
+permissions:
+  contents: write
+ 
 jobs:
   metrics:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@v3.34   # version fija (no @latest)
         with:
+          # Token de SOLO LECTURA para leer tus repos privados
           token: ${{ secrets.METRICS_TOKEN }}
-          user: lianjesu
+          # Token automatico de Actions para commitear el SVG en este repo
+          committer_token: ${{ github.token }}
+          user: TU_USUARIO
           template: classic
-          base: header, activity, community, repositories
+          base: header, activity, community
           plugin_languages: yes
           plugin_languages_sections: most-used
           plugin_languages_details: percentage
+          plugin_languages_indepth: no
           filename: github-metrics.svg
